@@ -5,3 +5,6 @@ from .models import InfoUser
 def index(request):
     infouser = InfoUser.objects.latest("id")
     return render(request,"index.html", locals())
+
+def about(request):
+    return render(request,"about.html",locals())
