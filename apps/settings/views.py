@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import InfoUser
+from .models import InfoUser, About, Skills, Work
 # Create your views here.
 
 def index(request):
@@ -7,4 +7,7 @@ def index(request):
     return render(request,"index.html", locals())
 
 def about(request):
-    return render(request,"about.html",locals())
+    about = About.objects.latest("id")
+    skill = Skills.objects.all
+    work = Work.objects.all
+    return render(request,"about.html", locals())

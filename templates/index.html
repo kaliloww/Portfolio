@@ -58,7 +58,7 @@
                 <img src="{{infouser.image.url}}" class="img-fluid main-img-mobile d-none d-sm-block d-lg-none" alt="my picture" />
                 <h1 class="text-uppercase poppins-font">Я {{infouser.name}} <span>{{infouser.work}}</span></h1>
                 <p class="open-sans-font">{{infouser.descriptions}}</p>
-                <a class="button" href="about.html">
+                <a class="button" href="{% url 'about' %}">
                     <span class="button-text">Обо мне</span>
                     <span class="button-icon fa fa-arrow-right"></span>
                 </a>

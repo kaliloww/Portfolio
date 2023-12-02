@@ -85,3 +85,45 @@ class About(models.Model):
         verbose_name = "Обо мне"
         verbose_name_plural = "Обо мне"
         
+class Skills(models.Model):
+    skill = models.CharField(
+        max_length=100,
+        verbose_name="Скилл"
+    )
+    procent = models.CharField(
+        max_length=100,
+        verbose_name="Процент"
+    )
+
+    def __str__(self) -> str:
+        return f"{self.skill}"
+    
+    class Meta:
+        verbose_name= "Скилы"
+        verbose_name_plural = "Скилл"
+
+class Work(models.Model):
+    work_time = models.CharField(
+        max_length=100,
+        verbose_name="Годы работы"
+    )
+    job_title = models.CharField(
+        max_length=100,
+        verbose_name="Должность"
+    )
+    company = models.CharField(
+        max_length=100,
+        verbose_name="компания где работал"
+    )
+    comment = models.CharField(
+        max_length=100,
+        verbose_name="comment"
+    )
+    def __str__(self) -> str:
+        return f"{self.job_title} - {self.company}"
+    
+    class Meta:
+        verbose_name = "Опыт работы"
+        verbose_name_plural = "Опыты работы"
+
+    
