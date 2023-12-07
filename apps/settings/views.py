@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import InfoUser, About, Skills, Work, Education
+from django.shortcuts import render, redirect
+from .models import InfoUser, About, Skills, Work, Education, Contact
 # Create your views here.
 
 def index(request):
@@ -12,3 +12,13 @@ def about(request):
     work = Work.objects.all
     education = Education.objects.all
     return render(request,"about.html", locals())
+
+def contact(request):
+    infouser = InfoUser.objects.latest("id")
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        Contact.objects.create(name= name , email = email , message=message)
+        return redirect('index')
+    return render(request, "contact.html", locals())

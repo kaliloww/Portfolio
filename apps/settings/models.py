@@ -149,3 +149,22 @@ class Education(models.Model):
     class Meta:
         verbose_name = "Образование"
         verbose_name_plural = "Образовании"
+
+class Contact(models.Model):
+    name = models.CharField(
+        verbose_name="Имя",
+        max_length=255
+    ) 
+    email= models.EmailField(
+        verbose_name="Электронная почта"
+    )
+    message = models.TextField(
+        verbose_name="Сообщение"
+    )
+
+    def __str__(self) -> str:
+        return f"{self.name} - {self.email}"
+    
+    class Meta:
+        verbose_name = "Обратная связь"
+        verbose_name_plural = "Обратная связь"
