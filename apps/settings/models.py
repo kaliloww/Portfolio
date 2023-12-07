@@ -126,4 +126,26 @@ class Work(models.Model):
         verbose_name = "Опыт работы"
         verbose_name_plural = "Опыты работы"
 
+class Education(models.Model):
+    year = models.CharField(
+        max_length=100,
+        verbose_name="Год окончаеия"
+    )
+    education = models.CharField(
+        max_length=255,
+        verbose_name="Научный стенпень"
+    )
+    h_e_i = models.CharField(
+        max_length=100,
+        verbose_name="ВУЗ"
+    )
+    comment = models.TextField(
+        max_length=100,
+        verbose_name="Комментарии"
+    )
+    def __str__(self) -> str:
+        return f"{self.education} - {self.h_e_i}"
     
+    class Meta:
+        verbose_name = "Образование"
+        verbose_name_plural = "Образовании"
